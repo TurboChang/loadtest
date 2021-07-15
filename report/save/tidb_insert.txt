@@ -1,0 +1,6 @@
+Mysql insert data cost: 748.175ms
+Mysql insert data cost: 180.529ms
+Mysql insert data cost: 117.168ms
+Mysql insert data cost: 402.803ms
+Mysql insert data cost: 843.977ms
+Mysql insert data cost: 289.87ms

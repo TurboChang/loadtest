@@ -1,0 +1,6 @@
+Pg insert data cost: 621.548ms
+Pg insert data cost: 425.243ms
+Pg insert data cost: 350.38ms
+Pg insert data cost: 132.668ms
+Pg insert data cost: 832.58ms
+Pg insert data cost: 864.999ms

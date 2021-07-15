@@ -1,0 +1,58 @@
+
+SQL*Loader: Release 19.0.0.0.0 - Production on Thu Jul 15 18:44:00 2021
+Version 19.8.0.0.0
+
+Copyright (c) 1982, 2020, Oracle and/or its affiliates.  All rights reserved.
+
+Control File:   /Users/changliuxin/Programs/datapipeline/loadTest/core/logics/db/ctls/oracle.ctl
+Character Set UTF8 specified for all input.
+
+Data File:      /Users/changliuxin/Programs/datapipeline/loadTest/assets/testData/TestData.csv
+  Bad File:     /Users/changliuxin/Programs/datapipeline/loadTest/core/logics/db/ctls/TestData.bad
+  Discard File:  none specified
+ 
+ (Allow all discards)
+
+Number to load: ALL
+Number to skip: 0
+Errors allowed: 50
+Bind array:     250 rows, maximum of 67108864 bytes
+Continuation:    none specified
+Path used:      Conventional
+
+Table CUSTOMER, loaded from every logical record.
+Insert option in effect for this table: TRUNCATE
+TRAILING NULLCOLS option in effect
+
+   Column Name                  Position   Len  Term Encl Datatype
+------------------------------ ---------- ----- ---- ---- ---------------------
+CUSTOMER_ID                         FIRST     *   ,       CHARACTER            
+FIRST_NAME                           NEXT     *   ,       CHARACTER            
+LAST_NAME                            NEXT     *   ,       CHARACTER            
+PHONE                                NEXT     *   ,       CHARACTER            
+EMAIL                                NEXT     *   ,       CHARACTER            
+STATUS                               NEXT     *   ,       CHARACTER            
+BIRDSDAY                             NEXT     *   ,       CHARACTER            
+ADDR                                 NEXT     *   ,       CHARACTER            
+
+
+Table CUSTOMER:
+  5000 Rows successfully loaded.
+  0 Rows not loaded due to data errors.
+  0 Rows not loaded because all WHEN clauses were failed.
+  0 Rows not loaded because all fields were null.
+
+
+Space allocated for bind array:                 516000 bytes(250 rows)
+Read   buffer bytes:67108864
+
+Total logical records skipped:          0
+Total logical records read:          5000
+Total logical records rejected:         0
+Total logical records discarded:        0
+
+Run began on Thu Jul 15 18:44:00 2021
+Run ended on Thu Jul 15 18:44:02 2021
+
+Elapsed time was:     00:00:01.83
+CPU time was:         00:00:00.06

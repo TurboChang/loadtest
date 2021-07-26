@@ -2,7 +2,8 @@
 # author TurboChang
 
 import psycopg2
-from loadTest.core.operators.db_driver import *
+
+from core.operators.db_driver import *
 
 
 class InsertGaussDB:

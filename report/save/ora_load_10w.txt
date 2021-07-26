@@ -1,0 +1,6 @@
+Oracle load data cost: 188s
+Oracle load data cost: 351s
+Oracle load data cost: 252s
+Oracle load data cost: 352s
+Oracle load data cost: 292s
+Oracle load data cost: 312s

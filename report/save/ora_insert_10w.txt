@@ -1,0 +1,6 @@
+Oracle insert data cost: 72s
+Oracle insert data cost: 37s
+Oracle insert data cost: 44s
+Oracle insert data cost: 20s
+Oracle insert data cost: 99s
+Oracle insert data cost: 30s

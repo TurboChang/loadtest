@@ -4,3 +4,8 @@ Oracle load data cost: 665.879ms
 Oracle load data cost: 568.356ms
 Oracle load data cost: 411.528ms
 Oracle load data cost: 441.323ms
+Oracle load data cost: 379.765ms
+Oracle load data cost: 474.358ms
+Oracle load data cost: 380.174ms
+Oracle load data cost: 493.225ms
+Oracle load data cost: 396.53ms

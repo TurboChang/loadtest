@@ -2,7 +2,8 @@
 # author TurboChang
 
 import psycopg2
-from loadTest.core.operators.db_driver import *
+from psycopg2.extras import *
+from core.operators.db_driver import *
 
 
 class InsertGreenPlumDB:
@@ -39,8 +40,9 @@ class InsertGreenPlumDB:
         cursor = self.db.cursor()
         cursor.execute("truncate table {0}".format(table_name))
         print('SQL: {0}'.format(sql))
-        cursor.executemany(sql, para)
-        cursor.close()
+        psycopg2.extras.execute_batch(cursor,sql,para)
+        # cursor.executemany(sql, para)
+        # cursor.close()
         self.db.commit()
 
     @db_step("GreenPlum Insert Batch")

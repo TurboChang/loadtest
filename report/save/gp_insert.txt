@@ -5,3 +5,7 @@ Gp insert data cost: 414.541ms
 Gp insert data cost: 940.342ms
 Gp insert data cost: 804.095ms
 Gp insert data cost: 910.08ms
+Gp insert data cost: 53.209ms
+Gp insert data cost: 387.967ms
+Gp insert data cost: 925.548ms
+Gp insert data cost: 451.202ms

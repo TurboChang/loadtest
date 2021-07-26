@@ -1,0 +1,69 @@
+.
+|____runner.py
+|____core
+| |____operators
+| | |____db_factory.pyc
+| | |____db_driver.py
+| | |______init__.py
+| | |____param.py
+| | |____db_factory.py
+| | |______init__.pyc
+| |______init__.py
+| |____exceptions
+| | |______init__.py
+| | |____related_exception.py
+| |____logics
+| | |______init__.py
+| | |____db
+| | | |____dbs
+| | | | |____db_redshift.py
+| | | | |____db_db2.py
+| | | | |____db_tidb.py
+| | | | |____db_postgresql.py
+| | | | |____db_oracle.py
+| | | | |______init__.py
+| | | | |____db_greenplum.py
+| | | | |____db_gaussdb.py
+| | | | |____db_sequoiadb.py
+| | | | |____db_mysql.py
+| | | | |____db_sqlserver.py
+| | | |______init__.py
+| | | |____ctls
+| | | | |____oracle.ctl
+| |______init__.pyc
+|____requirements.txt
+|______init__.py
+|____docs
+|____README.md
+|____lib
+|____report
+| |____report.txt
+| |____save
+| | |____ora_insert.txt
+| | |____mysql_load.txt
+| | |____pg_insert.txt
+| | |____ora_load_10w.txt
+| | |____gp_insert.txt
+| | |____mysql_load_10w.txt
+| | |____tidb_load.txt
+| | |____tidb_load_10w.txt
+| | |____pg_load.txt
+| | |____gp_load.txt
+| | |____mysql_insert.txt
+| | |____gp_insert_10w.txt
+| | |____tidb_insert.txt
+| | |____gp_load_10w.txt
+| | |____pg_insert_10w.txt
+| | |____mysql_insert_10w.txt
+| | |____tidb_insert_10w.txt
+| | |____ora_load.txt
+| | |____ora_insert_10w.txt
+| | |____pg_load_10w.txt
+|____assets
+| |____testData
+| | |____TestData.csv.bak
+| | |____TestData.csv
+| |______init__.py
+| |____testPlan
+| | |____TestPlan.xlsx
+|____tree.txt

@@ -1,9 +1,11 @@
 # encoding: utf-8
 # author TurboChang
 
-import cx_Oracle
 import os
-from loadTest.core.operators.db_driver import *
+
+import cx_Oracle
+
+from core.operators.db_driver import *
 
 
 class InsertOracleDB:

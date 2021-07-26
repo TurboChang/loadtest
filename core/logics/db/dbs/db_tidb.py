@@ -2,7 +2,8 @@
 # author TurboChang
 
 import pymysql
-from loadTest.core.operators.db_driver import *
+
+from core.operators.db_driver import *
 
 
 class InsertTiDB:

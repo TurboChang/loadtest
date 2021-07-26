@@ -1,8 +1,11 @@
 # encoding: utf-8
 # author TurboChang
 
+
 import argparse
-from loadTest.core.operators.db_factory import insert_db_instance
+import sys
+print(sys.path)
+from core.operators.db_factory import *
 
 PLAN_TABLE = '执行指定的测试表'
 PLAN_COUNT = '执行制定的测试次数'
@@ -31,12 +34,23 @@ class TestRunner:
         self.options, self.args = _prepare_cli()
         self.num = self.args.num
         self.table_name = self.args.table_name
-
+        self.repoter_path = "report/save/"
 
     def runtest(self):
         for i in range(0, self.num):
             insert_db_instance(self.table_name)
 
+    def repoter(self):
+        # self.runtest()
+        report_name = os.listdir(self.repoter_path)
+        print(report_name)
+
+
+
 if __name__ == '__main__':
-    exit(TestRunner().runtest())
+    # exit(TestRunner().runtest())
+    import sys
+    sys.path.append(os.path.dirname(sys.path[0]))
+    f=TestRunner()
+    f.repoter()
 

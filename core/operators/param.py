@@ -1,9 +1,12 @@
 # encoding: utf-8
 # author TurboChang
 
-import openpyxl
 import os
-from loadTest.core.exceptions.related_exception import ReadExcelException
+
+import openpyxl
+
+from core.exceptions.related_exception import ReadExcelException
+
 
 def get_testplan(root_path, excel_name, sheet_name=None):
     cls = []

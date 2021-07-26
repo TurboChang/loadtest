@@ -1,9 +1,10 @@
 # encoding: utf-8
 # author TurboChang
 
-import datetime
 import csv
-from loadTest.core.exceptions.related_exception import ReadCsvException
+import datetime
+
+from core.exceptions.related_exception import ReadCsvException
 
 DB_LOGGING_START = '-' * 10 + 'DB-START' + '-' * 10
 DB_LOGGING_END = '-' * 11 + 'DB-END' + '-' * 11

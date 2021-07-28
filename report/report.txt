@@ -1,8 +1,10 @@
-mysql 100w insert: 74.0s
-mysql 100w load: 42.333s
-mysql 5k insert:  0.76s
-mysql 5k load:  0.68s
-ora 100w insert: 50.333s
-ora 100w load: 291.167s
-ora 5k insert:  0.44s
-ora 5k load:  2.64s
+Gp  5k insert avg:  3.075s
+Gp  5k load avg:  0.05s
+Pg  5k insert:  0.325s
+Pg  5k load:  Nones
+gauss 5k insert:  Nones
+gauss 5k load:  0.125s
+mysql 5k insert:  0.075s
+mysql 5k load:  0.025s
+ora 5k insert:  0.025s
+ora 5k load:  0.9s

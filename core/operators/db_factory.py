@@ -3,13 +3,12 @@
 
 import xlsxwriter
 import re
-
 from core.operators.param import get_testplan
 from core.logics.db.dbs.db_oracle import *
-from core.logics.db.dbs.db_postgresql import *
-from core.logics.db.dbs.db_greenplum import *
+from core.logics.db.dbs.db_jdbc import *
 from core.logics.db.dbs.db_mysql import *
-from core.logics.db.dbs.db_tidb import *
+# from core.logics.db.dbs.db_postgresql import *
+# from core.logics.db.dbs.db_tidb import *
 from core.exceptions.related_exception import DBNotSupportedException
 import datetime
 
@@ -29,6 +28,7 @@ def insert_db_instance(table_name):
     root_path = "../../assets/testPlan/"
     excel_name = "TestPlan.xlsx"
     sheet_name = "TestDbSource"
+    command = "python /Users/changliuxin/Programs/datapipeline/loadTest/core/logics/db/dbs/"
 
     testinfo = get_testplan(root_path, excel_name, sheet_name)
     for cls in testinfo:
@@ -49,41 +49,56 @@ def insert_db_instance(table_name):
                 load_data.sqlldr()
                 db_cost(start_time, "Oracle load data cost:", "ora_load")
 
-        # PostgreSQL
-        elif db_type == "postgresql":
-            ins_data = InsertPostgresDB(cls, table_name)
-            load_data = LoadPostgresDB(cls, table_name)
-
-            if ins_data:
-                start_time = datetime.datetime.now()
-                ins_data.insert()
-                db_cost(start_time, "Pg insert data cost:", "pg_insert")
-
-            if load_data:
-                start_time = datetime.datetime.now()
-                load_data.copy()
-                db_cost(start_time, "Pg insert data cost:", "pg_load")
+        # # PostgreSQL
+        # elif db_type == "postgresql":
+        #     ins_data = InsertJdbcPG(cls, 'customer', 'postgresql')
+        #     load_data = LoadPsqlPG(cls, 'customer', 'postgresql')
+        #
+        #     if ins_data:
+        #         start_time = datetime.datetime.now()
+        #         ins_data.insert()
+        #         db_cost(start_time, "Pg insert data cost:", "pg_insert")
+        #
+        #     if load_data:
+        #         start_time = datetime.datetime.now()
+        #         load_data.copy()
+        #         db_cost(start_time, "Pg insert data cost:", "pg_load")
 
         # GreenPlum
+        # elif db_type == "greenplum":
+        #     ins_data = InsertJDBC(cls, 'customer', 'greenplum')
+        #     load_data = LoadPSQL(cls, 'customer', 'greenplum')
+        #
+        #     if ins_data:
+        #         start_time = datetime.datetime.now()
+        #         ins_data.insert()
+        #         db_cost(start_time, "Gp insert data cost:", "gp_insert")
+        #
+        #     if load_data:
+        #         start_time = datetime.datetime.now()
+        #         load_data.copy()
+        #         db_cost(start_time, "Gp insert data cost:", "gp_load")
+
+        # GP/PG
         elif db_type == "greenplum":
-            ins_data = InsertGreenPlumDB(cls, table_name)
-            load_data = LoadGreenPlumDB(cls, table_name)
-
-            if ins_data:
-                start_time = datetime.datetime.now()
-                ins_data.insert()
-                db_cost(start_time, "Gp insert data cost:", "gp_insert")
-
-            if load_data:
-                start_time = datetime.datetime.now()
-                load_data.copy()
-                db_cost(start_time, "Gp insert data cost:", "gp_load")
-            # continue
+            os.system(command + "db_greenplum.py")
+        elif db_type == "postgresql":
+            os.system(command + "db_postgresql.py")
 
         # GaussDB
         elif db_type == "gaussdb":
-            """psycopg2需要使用opengauss lib重新编译"""
-            continue
+            ins_data = InsertJDBC(cls, 'customer', 'gaussdb')
+            load_data = LoadPSQL(cls, 'customer', 'gaussdb')
+
+            if ins_data:
+                start_time = datetime.datetime.now()
+                ins_data.insert()
+                db_cost(start_time, "Gauss insert data cost:", "gauss_insert")
+
+            if load_data:
+                start_time = datetime.datetime.now()
+                load_data.copy()
+                db_cost(start_time, "Gauss insert data cost:", "gauss_load")
 
         # Mysql
         elif db_type == "mysql":
@@ -233,6 +248,19 @@ def file_group():
                 else:
                     lists.append("mysql 5k insert:  {0}{1}".format(pars_report(file), "s"))
 
+        # gaussdb
+        if file[0:5] == "gauss":
+            if file[6:10] == "load":
+                if file[11:14] == "10w":
+                    lists.append("gauss 10w load: {0}{1}".format(pars_report(file), "s"))
+                else:
+                    lists.append("gauss 5k load:  {0}{1}".format(pars_report(file), "s"))
+            if file[6:12] == "insert":
+                if file[13:16] == "10w":
+                    lists.append("gauss 10w insert: {0}{1}".format(pars_report(file), "s"))
+                else:
+                    lists.append("gauss 5k insert:  {0}{1}".format(pars_report(file), "s"))
+
     data = sorted(lists)
     return data
 
@@ -267,6 +295,5 @@ if __name__ == '__main__':
     #     insert_db_instance('customer')
     # print(file_group())
     get_report("report.txt")
-    # print(parse_txt("mysql_insert.txt"))
 
 
